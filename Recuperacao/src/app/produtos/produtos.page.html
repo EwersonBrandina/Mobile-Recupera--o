@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button defaulHref ="" ></ion-back-button>
+    </ion-buttons>
+    <ion-title>Produtos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div id="container">
+    <form [formGroup]="produtoForm" (submit)="enviar()">
+      
+      <ion-item lines="none">
+        <ion-label position="floating">Nome:</ion-label>
+        <ion-input formControlName="nome"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label position="floating">Valor:</ion-label>
+        <ion-input formControlName="valor"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label position="floating">Quantidade:</ion-label>
+        <ion-input formControlName="quantidade"></ion-input>
+      </ion-item>
+      <ion-button padding shape="round" expand="block" type="submit">Salvar</ion-button>
+    
+    </form>
+    <ion-list>
+      <ion-item *ngFor="let arrayProduto of arrayProduto" lines="nome">
+        <ion-label>{{arrayProduto.nome}}</ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+
+</ion-content>
