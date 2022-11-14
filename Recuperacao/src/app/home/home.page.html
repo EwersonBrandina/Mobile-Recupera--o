@@ -1,20 +1,18 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Estoque
-    </ion-title>
-  </ion-toolbar>
+ 
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  <ion-header>
     <ion-toolbar>
       <ion-title size="large">Estoque</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <div id="container">
-    <ion-button padding shape="round" expand="block" routerLink="/produtos/">Produtos</ion-button>
-    <ion-button padding shape="round" expand="block">Histórico</ion-button>
+  <ion-list>
+    <ion-button routerLink="/produtos" color="dark" shape="round" >Produtos</ion-button>
+    <ion-button routerLink="/historico-produtos" color="dark" shape="round"  >Histórico</ion-button>
+  </ion-list>
   </div>
 </ion-content>

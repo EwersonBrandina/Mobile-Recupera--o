@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button color="danger"  defaulHref ="">
+        <ion-icon name="return-down-back-outline"></ion-icon>
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title  >Produtos</ion-title>
+  </ion-toolbar>
+
+    
+</ion-header>
+
+<ion-list>
+  <ion-item id="rtrt" *ngFor="let todosProdutos of todosProdutos" routerLink="/detalhes-produto/{{todosProdutos.id.value}}">
+   <ion-avatar slot="start" color="danger">
+     <img  src="https://cdn-icons-png.flaticon.com/512/8064/8064086.png" />
+   </ion-avatar>
+   <ion-label id="rtrt">{{todosProdutos.nome}}</ion-label>
+   <p id="rtrt">R$ {{todosProdutos.valor}}</p>
+ </ion-item>  
+</ion-list> 
+
+
+<ion-content>
+  <ion-fab vertical="top" horizontal="end" slot="fixed" edge="true">
+    <ion-fab-button size="small" routerLink="/detalhes-produto/add" color="danger">
+      <ion-icon  name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>   
+</ion-content>

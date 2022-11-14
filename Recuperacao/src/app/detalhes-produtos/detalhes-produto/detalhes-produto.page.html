@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button color="dark"  defaulHref ="">
+        <ion-icon name="return-down-back-outline"></ion-icon>
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title >Detalhes Produtos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item id="bb" *ngIf="!modoDeEdicao">{{produtoSelecionado.nome}} </ion-item>
+
+  <ion-item id="bb" *ngIf="!modoDeEdicao"> R$ {{produtoSelecionado.valor}}</ion-item>
+
+  <ion-item id="bb" *ngIf="!modoDeEdicao">Quantidade {{produtoSelecionado.quantidade}}</ion-item>
+
+
+  <ion-fab vertical="top" horizontal="end" slot="fixed" edge="true">
+    <ion-fab-button  size="small"  color="dark" (click)="showOptions()">
+      <ion-icon name="trash-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-button shape="round"  color="dark" *ngIf="!modoDeEdicao" (click)="IniciarEdicao()">Alterar</ion-button>
+  <!--<ion-button shape="round"  color="dark" *ngIf="!modoDeEdicao2" (click)="IniciarEdicao2()">Alterar2</ion-button>-->
+
+
+  <form *ngIf="modoDeEdicao" #form="ngForm"  (ngSubmit)="EncerrarEdicao()" [formGroup]="produtoForm">
+    <ion-item>
+     <ion-label position="floating">Nome:</ion-label>
+     <ion-input [(ngModel)]="produtoSelecionado.nome" formControlName="nome"></ion-input>
+      <small class="error-message" *ngIf="(produtoForm.get('nome').errors?.required || produtoForm.get('nome').errors?.minlength || produtoForm.get('nome').errors?.maxlength) && form.submitted"></small>
+    </ion-item> 
+
+    <ion-item>
+      <ion-label  position="floating">Valor:</ion-label>
+      <ion-input [(ngModel)]="produtoSelecionado.valor" formControlName="valor"></ion-input>
+      <small class="error-message" *ngIf="(produtoForm.get('valor').errors?.required || produtoForm.get('valor').errors?.minlength || produtoForm.get('valor').errors?.maxlength) && form.submitted"></small> 
+    </ion-item> 
+ 
+    <ion-item>
+     <ion-label  position="floating">Quantidade:</ion-label>
+     <ion-input [(ngModel)]="produtoSelecionado.quantidade" formControlName="quantidade" ></ion-input>
+     <small class="error-message" *ngIf="(produtoForm.get('quantidade').errors?.required || produtoForm.get('quantidade').errors?.minlength || produtoForm.get('quantidade').errors?.maxlength) && form.submitted"></small>
+    </ion-item> 
+
+    <ion-button  color="dark" shape="round" type="submit">Salvar</ion-button>
+ 
+  </form>
+
+</ion-content>
